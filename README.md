@@ -2,6 +2,10 @@
 
 **Convert**, **Compress** and **Upscale** boxes that appear right under Vorssaint's Shelf when you drag images. Hover a box mid-drag to see its options, drop on one, and the result lands next to the original.
 
+<p><img src="docs/convert.png" width="300" alt="Tack's Convert box expanded to JPG, PNG, WebP, HEIC and AVIF"> <img src="docs/upscale.png" width="300" alt="Tack's Upscale box expanded"></p>
+
+<img src="docs/results.png" width="300" alt="Tack showing a finished result to drag back">
+
 - Convert to JPG, PNG, WebP, HEIC or AVIF.
 - Compress (light / medium / strong); PNGs use pngquant when it's installed.
 - Upscale 2× (Lanczos).
