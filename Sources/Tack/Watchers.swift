@@ -168,6 +168,10 @@ final class ShelfLocator {
 /// Image files currently sitting on Vorssaint's shelf, read from its saved shelf list.
 enum VorssaintShelf {
     private static let domain = "com.vorssaint.utils" as CFString
+    /// Vorssaint is free and open source; this is where to get it.
+    static let download = URL(string: "https://github.com/vorssaint/vorssaint-utils/releases/latest")!
+
+    static var installed: Bool { NSWorkspace.shared.urlForApplication(withBundleIdentifier: domain as String) != nil }
     private static var loggedShape = false
 
     /// Vorssaint's own Shelf switch. Missing (an older Vorssaint) counts as on.

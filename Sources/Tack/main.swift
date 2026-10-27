@@ -189,13 +189,28 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         coordinator.start()
+        if CommandLine.arguments.contains("--preview") { coordinator.preview(); return }
+        // Tack has no window, so without Vorssaint it would look like nothing happened: say so right away.
+        guard VorssaintShelf.installed else { showVorssaintMissing(); return }
         // It has no visible UI, so it should just always be there; turn on Open at Login the first time.
         let defaults = UserDefaults.standard
         if !defaults.bool(forKey: "didSetUpLogin") {
             defaults.set(true, forKey: "didSetUpLogin")
             setOpenAtLogin(true)
         }
-        if CommandLine.arguments.contains("--preview") { coordinator.preview() }
+    }
+
+    private func showVorssaintMissing() {
+        Log.write("Vorssaint isn't installed")
+        let alert = NSAlert()
+        alert.messageText = "Tack needs Vorssaint"
+        alert.informativeText = "Tack puts its Convert, Compress and Upscale boxes under Vorssaint's Shelf, so it does nothing without it. "
+            + "Vorssaint is a free, open-source menu bar toolkit: install it, open it, turn on its Shelf, then open Tack again."
+        alert.addButton(withTitle: "Get Vorssaint")
+        alert.addButton(withTitle: "Quit Tack")
+        NSApp.activate()
+        if alert.runModal() == .alertFirstButtonReturn { NSWorkspace.shared.open(VorssaintShelf.download) }
+        NSApp.terminate(nil)
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -208,6 +223,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let vorssaint = !NSRunningApplication.runningApplications(withBundleIdentifier: "com.vorssaint.utils").isEmpty
         let alert = NSAlert()
         alert.messageText = "Tack is running"
+        guard VorssaintShelf.installed else { showVorssaintMissing(); return }
         let status = !vorssaint ? "Vorssaint isn't running, so the boxes won't show until it is."
             : !VorssaintShelf.shelfEnabled ? "Vorssaint's Shelf is turned off. Turn it on in Vorssaint's settings to see the boxes."
             : "Its boxes show up under Vorssaint's shelf when you drag images."

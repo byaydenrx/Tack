@@ -2,6 +2,9 @@
 
 **Convert**, **Compress** and **Upscale** boxes that appear right under Vorssaint's Shelf when you drag images. Hover a box mid-drag to see its options, drop on one, and the result lands next to the original.
 
+> [!IMPORTANT]
+> **Tack needs Vorssaint.** It's an add-on for [Vorssaint](https://vorssaint.com), a free, open-source menu bar toolkit: [download Vorssaint](https://github.com/vorssaint/vorssaint-utils/releases/latest). Vorssaint has to be running with its **Shelf** turned on in its settings. Without it Tack does nothing.
+
 <p><img src="docs/convert.png" width="300" alt="Tack's Convert box expanded to JPG, PNG, WebP, HEIC and AVIF"> <img src="docs/upscale.png" width="300" alt="Tack's Upscale box expanded"></p>
 
 <img src="docs/results.png" width="300" alt="Tack showing a finished result to drag back">
@@ -15,12 +18,12 @@
 ## Requirements
 
 - macOS 26 or later.
-- **Vorssaint**, running, with its **Shelf** turned on. Tack is an add-on to Vorssaint's Shelf: it finds the Shelf window on screen and reads the Shelf's file list from Vorssaint's preferences. Without Vorssaint (or with the Shelf off) Tack does nothing. Tested with Vorssaint 3.4 using shake-to-summon; the notch Shelf hasn't been tested.
+- **[Vorssaint](https://vorssaint.com)** ([download](https://github.com/vorssaint/vorssaint-utils/releases/latest), free and open source), running, with its **Shelf** turned on. Tack is an add-on to Vorssaint's Shelf: it finds the Shelf window on screen and reads the Shelf's file list from Vorssaint's preferences. Without Vorssaint (or with the Shelf off) Tack does nothing. Tested with Vorssaint 3.4 using shake-to-summon; the notch Shelf hasn't been tested.
 - Optional, from Homebrew: `brew install webp` (needed for **WebP** output) and `brew install pngquant` (better PNG compression).
 
 ## Install
 
-Tack only does something if Vorssaint is running with its Shelf turned on.
+Install and open [Vorssaint](https://github.com/vorssaint/vorssaint-utils/releases/latest) first, with its Shelf turned on.
 
 **Download:** get [Tack.zip](https://github.com/byaydenrx/Tack/releases/latest/download/Tack.zip) from the [latest release](https://github.com/byaydenrx/Tack/releases/latest) (Apple silicon and Intel, macOS 26 or later).
 
