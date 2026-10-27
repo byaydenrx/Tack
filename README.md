@@ -20,15 +20,24 @@
 
 ## Install
 
+Tack only does something if Vorssaint is running with its Shelf turned on.
+
+**Download:** get [Tack.zip](https://github.com/byaydenrx/Tack/releases/latest/download/Tack.zip) from the [latest release](https://github.com/byaydenrx/Tack/releases/latest) (Apple silicon and Intel, macOS 26 or later).
+
+1. Double-click `Tack.zip` to unzip it, and drag **Tack** into your Applications folder.
+2. Open it. Because the app isn't notarized by Apple, macOS says it can't verify it: click **Done**.
+3. Open System Settings › Privacy & Security, scroll down to “Tack was blocked”, click **Open Anyway** and confirm. You only do this once.
+4. Tack has no window or menu bar icon. Open it again from Applications to quit it or change Open at Login.
+
+**Or build it yourself** (no Gatekeeper prompt), with Swift 6 from the Xcode Command Line Tools (`xcode-select --install`) or Xcode:
+
 ```sh
-git clone https://github.com/Byaydenrx/Tack.git
+git clone https://github.com/byaydenrx/Tack.git
 cd Tack
 ./install.sh
 ```
 
-`install.sh` builds Tack from source, copies it to `~/Applications` and opens it. To only build: `./build.sh` makes `build/Tack.app` (universal: Apple silicon and Intel). Either needs Swift 6 from the Xcode Command Line Tools (`xcode-select --install`) or Xcode.
-
-Downloaded builds aren't notarized, so macOS blocks them the first time: System Settings › Privacy & Security › **Open Anyway**. Building it yourself avoids that.
+`install.sh` builds Tack, copies it to `~/Applications` and opens it. `./build.sh` only builds `build/Tack.app`.
 
 ## Data
 
